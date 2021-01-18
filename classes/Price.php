@@ -22,8 +22,13 @@ include_once __DIR__ . '/Item.php';
     }
 
     public function calcDiscount(){
+        if( $this->discount !== 0){
         $total = $this->price / 100 * $this->discount;
-        return number_format($total, 2);
+        return number_format($total, 2) . ' euro';
+        }
+        else {
+            return 'Nessuno Sconto Applicato';
+        }
     }
  }
 
