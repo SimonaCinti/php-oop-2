@@ -14,13 +14,28 @@ include_once __DIR__ .'/Item.php';
          $this->tier_membership = $tier_membership;
      }
 
-     public function getTier(){
+    protected function getTier(){
          return $this->tier_membership;
-     }
+    }
 
-     public function printItem(){
+    public function printItem(){
         $name_type = parent::printItem();
         $tier = $this->tier_membership;
         return "$name_type ( $tier Tier)";
-     }
+    }
+    // Scontistica
+    public function discountMember(){
+        if ($this->tier_membership === "Gold"){
+            $discount = $this->price / 100 * 70;
+            return number_format($discount, 2) . ' euro - Sconto Gold';
+        }
+        elseif ($this->tier_membership === "Silver") {
+            $discount = $this->price / 100 * 50;
+            return number_format($discount, 2) . ' euro - Sconto Silver';
+        }
+        else {
+            $discount = $this->price / 100 * 25;
+            return number_format($discount, 2) . ' euro - Sconto Membership';
+        }
+    }
 }
