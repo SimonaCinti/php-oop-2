@@ -64,7 +64,7 @@ include_once __DIR__ . '/classes/Member_price.php';
                 echo ($Member_price->price . ' euro')
                 ?>
             </h4>
-            <h4> Sconto Membership:
+            <h4> Prezzo Membership:
              <?php echo($Member_price->discountMember()) ?>
             </h4>
         </section>
@@ -85,7 +85,28 @@ include_once __DIR__ . '/classes/Member_price.php';
                 echo ($Member_price->price . ' euro')
                 ?>
             </h4>
-            <h4> Sconto Membership:
+            <h4> Prezzo Membership:
+             <?php echo($Member_price->discountMember()) ?>
+            </h4>
+        </section>
+        <section class="loyalty-item">
+            <?php // price istance 
+            $Member_price = new Member_price('Logitech 42', 'Webcam', 60, 3,);
+            $Member_price->setTier('Basic');
+            ?>
+            <h3> Oggetto:
+                <?php echo ($Member_price->printItem());
+                ?>
+            </h3>
+            <h3> In magazzino:
+                <?php echo ($Member_price->num_items); ?>
+            </h3>
+            <h4> Prezzo:
+                <?php
+                echo ($Member_price->price . ' euro')
+                ?>
+            </h4>
+            <h4> Prezzo Membership:
              <?php echo($Member_price->discountMember()) ?>
             </h4>
         </section>

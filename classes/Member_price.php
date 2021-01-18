@@ -26,16 +26,16 @@ include_once __DIR__ .'/Item.php';
     // Scontistica
     public function discountMember(){
         if ($this->tier_membership === "Gold"){
-            $discount = $this->price / 100 * 70;
-            return number_format($discount, 2) . ' euro - Sconto Gold';
+            $discount = $this->price - ($this->price / 100 * 70);
+            return number_format($discount, 2) . ' euro - Prezzo con Sconto Gold';
         }
         elseif ($this->tier_membership === "Silver") {
-            $discount = $this->price / 100 * 50;
-            return number_format($discount, 2) . ' euro - Sconto Silver';
+            $discount = $this->price - ($this->price / 100 * 50);
+            return number_format($discount, 2) . ' euro - Prezzo con sconto Silver';
         }
         else {
-            $discount = $this->price / 100 * 25;
-            return number_format($discount, 2) . ' euro - Sconto Membership';
+            $discount = $this->price - ($this->price / 100 * 25);
+            return number_format($discount, 2) . ' euro - Prezzo con sconto Membership';
         }
     }
 }
